@@ -7,7 +7,7 @@
 - Vue.js 2.4
 - PHP 7.1
 - Laravel 5.5
-- Postgres 9.6
+- Postgres 9.6 (Sqlite for MVP)
 
 ## Features:
 - Анкеты - еще не начата
