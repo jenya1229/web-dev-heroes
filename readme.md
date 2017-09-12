@@ -20,4 +20,4 @@
 
 ## Контакты:
 - telegram group - https://t.me/joinchat/Cl-fQ0LOMEEU-IyqRtqBFw
-- telegram me - @Konata69
+- telegram me - https://telegram.me/Konata69
