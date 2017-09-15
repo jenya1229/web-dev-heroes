@@ -19,3 +19,4 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@index');
+Route::get('/skills', 'SkillController@index');

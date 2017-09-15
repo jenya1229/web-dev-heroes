@@ -11,5 +11,8 @@
     </head>
     <body>
         @yield('content')
+
+        <script src="https://unpkg.com/vue"></script>
+        @yield('scripts')
     </body>
 </html>
