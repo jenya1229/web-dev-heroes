@@ -12289,33 +12289,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            input: ''
+            input: '',
+            skills: []
         };
     },
 
-    computed: {
-        skills: function skills() {
-            return [{ id: 1, name: 'php' }, { id: 2, name: 'laravel' }, { id: 3, name: 'javascript' }, { id: 4, name: 'vue' }];
-        }
-    },
-    mounted: {
-        list: function list() {
-            console.log('axios');
-            axios.get('/skills/list').then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
+    mounted: function mounted() {
+        this.init();
     },
     methods: {
+        init: function init() {
+            var vm = this;
+            axios.get('/skills/list').then(function (response) {
+                vm.skills = response.data;
+            });
+        },
+
         add: function add() {
             if (this.input) {
-                this.skills.push({
-                    id: this.skills.length,
-                    name: this.input
+                var vm = this;
+                axios.post('/skills', { name: this.input }).then(function (response) {
+                    var skill = response.data;
+                    vm.skills.push({
+                        id: skill.id,
+                        name: skill.name
+                    });
+                    vm.input = '';
                 });
-                this.input = '';
             }
         }
     }

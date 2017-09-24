@@ -18,4 +18,13 @@ class SkillController extends Controller
 
         return response()->json($skills);
     }
+
+    public function store(Request $request)
+    {
+        $skill = new Skill();
+        $skill->name = $request->input('name');
+        $skill->save();
+
+        return response()->json($skill);
+    }
 }

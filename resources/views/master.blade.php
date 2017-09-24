@@ -13,7 +13,6 @@
     <body>
         @yield('content')
 
-        {{--<script src="https://unpkg.com/vue"></script>--}}
         <script src="js/app.js"></script>
         @yield('scripts')
     </body>

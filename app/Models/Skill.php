@@ -4,6 +4,7 @@ namespace App\Models;
 
 /**
  * @property mixed $users
+ * @property string $name
  */
 class Skill extends BaseModel
 {

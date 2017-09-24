@@ -18,38 +18,33 @@
     export default {
         data() {
             return {
-                input: ''
+                input: '',
+                skills: [],
             }
         },
-        computed: {
-            skills() {
-                return [
-                    {id: 1, name: 'php'},
-                    {id: 2, name: 'laravel'},
-                    {id: 3, name: 'javascript'},
-                    {id: 4, name: 'vue'},
-                ]; },
-        },
-        mounted: {
-            list() {
-                console.log('axios');
-                axios.get('/skills/list')
-                    .then(function (response) {
-                        console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
-            }
+        mounted: function () {
+            this.init();
         },
         methods: {
+            init() {
+                let vm = this;
+                axios.get('/skills/list')
+                    .then(function (response) {
+                        vm.skills = response.data;
+                    })
+            },
             add: function () {
                 if(this.input){
-                    this.skills.push({
-                        id: this.skills.length,
-                        name: this.input
-                    });
-                    this.input = '';
+                    let vm = this;
+                    axios.post('/skills', {name: this.input})
+                        .then(function (response) {
+                            let skill = response.data;
+                            vm.skills.push({
+                                id: skill.id,
+                                name: skill.name
+                            });
+                            vm.input = '';
+                        });
                 }
             }
         }
