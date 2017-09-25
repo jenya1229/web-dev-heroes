@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 
-class SkillController extends Controller
+class SkillController extends BaseController
 {
     public function index()
     {

@@ -11,7 +11,9 @@
         <title>Web Dev Heroes</title>
     </head>
     <body>
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
 
         <script src="js/app.js"></script>
         @yield('scripts')
