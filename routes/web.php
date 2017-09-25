@@ -11,14 +11,9 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('home');
-//});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'ProfileController@index');
+Route::get('/', 'ProfileController@index');
 Route::get('/skills', 'SkillController@index');
 Route::get('/skills/list', 'SkillController@list');
 Route::post('/skills', 'SkillController@store');
