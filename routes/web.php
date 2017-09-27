@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::auth();
+
+Route::get('/', 'ProfileController@index');
+Route::get('/skills', 'SkillController@index');
+Route::get('/skills/list', 'SkillController@list');
+Route::post('/skills', 'SkillController@store');
