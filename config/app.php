@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
-
+//    'name' => env('APP_NAME', 'Web Dev Heroes'),
+    'name' => 'Web Dev Heroes',
     /*
     |--------------------------------------------------------------------------
     | Application Environment

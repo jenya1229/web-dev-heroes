@@ -8,10 +8,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
               integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 
-        <title>{{ config('app.name', 'Web Dev Heroes') }}</title>
+        <title>{{ config('app.name') }}</title>
     </head>
     <body>
         <div class="container">
+
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
+            </nav>
+            <br>
+
             @yield('content')
         </div>
 
