@@ -46,9 +46,18 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block">
-                                Register
-                            </button>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <button type="submit" class="btn btn-primary btn-block">
+                                        Register
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <a class="btn btn-light" href="{{ route('login') }}">
+                                        Login
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
