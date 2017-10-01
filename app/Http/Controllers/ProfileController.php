@@ -12,7 +12,7 @@ class ProfileController extends BaseController
         $user = Auth::user();
 //        dd($user);
 
-        return view('profile', [
+        return view('profile')->with([
             'user' => $user,
         ]);
     }
