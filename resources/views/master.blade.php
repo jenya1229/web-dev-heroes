@@ -15,6 +15,19 @@
 
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
+                @if (Auth::check())
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form"
+                          action="{{ route('logout') }}"
+                          method="POST"
+                          style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                @endif
             </nav>
             <br>
 
