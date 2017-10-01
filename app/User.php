@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property \Carbon\Carbon $updated_at
  * @property int $id
  * @property Profile $profile
+ * @property string $name
  */
 class User extends Authenticatable
 {

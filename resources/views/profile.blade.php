@@ -1,5 +1,5 @@
 @extends('master')
-
+<?php /** @var \App\User $user */ ?>
 @section('content')
 
     <div class="row">
