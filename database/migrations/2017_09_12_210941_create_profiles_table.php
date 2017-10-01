@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
-                ->references('id')->on('user')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->date('date');
             $table->text('about')->nullable();
