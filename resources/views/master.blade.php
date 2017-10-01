@@ -13,21 +13,25 @@
     <body>
         <div class="container">
 
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name') }}</a>
-                @if (Auth::check())
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout
-                    </a>
-
-                    <form id="logout-form"
-                          action="{{ route('logout') }}"
-                          method="POST"
-                          style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                @endif
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{{ url('skills') }}">Skills</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    @if (Auth::check())
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form"
+                              action="{{ route('logout') }}"
+                              method="POST"
+                              style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
+                </div>
             </nav>
             <br>
 
