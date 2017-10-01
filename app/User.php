@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Profile;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -9,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property int $id
+ * @property Profile $profile
  */
 class User extends Authenticatable
 {
@@ -31,4 +33,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile');
+    }
 }
