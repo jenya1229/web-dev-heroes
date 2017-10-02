@@ -7,6 +7,7 @@ use App\User;
 /**
  * @property User $user
  * @property string $specialization
+ * @property string $story
  */
 class Profile extends BaseModel
 {
