@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\User;
+
 /**
- * @property mixed $users
+ * @property User[] $users
  * @property string $name
  */
 class Skill extends BaseModel
@@ -12,6 +14,6 @@ class Skill extends BaseModel
 
     public function users()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\User', 'user_skills');
     }
 }

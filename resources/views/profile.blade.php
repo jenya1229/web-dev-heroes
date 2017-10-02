@@ -15,6 +15,17 @@
         <div class="col-md-6">
             <div class="row">
 
+                <div class="col-md">
+                    <div class="card">
+                        <div class="card-header">Skills</div>
+                        <div class="card-body">
+                            @foreach($user->skills as $skill)
+                                <span class="badge badge-primary">{{ $skill->name }}</span>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
