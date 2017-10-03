@@ -8,6 +8,8 @@ use App\User;
  * @property User $user
  * @property string $specialization
  * @property string $story
+ * @property int $user_id
+ * @property int $date
  */
 class Profile extends BaseModel
 {
