@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('skills', require('./components/Skills.vue'));
 Vue.component('description', require('./components/Description.vue'));
+Vue.component('skills_edit', require('./components/SkillsEdit.vue'));
 
 const app = new Vue({
     el: '#app'

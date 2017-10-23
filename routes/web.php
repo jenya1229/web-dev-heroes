@@ -14,6 +14,7 @@
 Route::auth();
 
 Route::get('/', 'ProfileController@index');
+Route::get('/profile/skills', 'ProfileController@skills');
 
 Route::get('/skills', 'SkillController@index');
 Route::get('/skills/list', 'SkillController@list');

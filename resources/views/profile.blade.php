@@ -16,7 +16,14 @@
             <div class="row">
                 <div class="col-md">
                     <div class="card">
-                        <div class="card-header">Skills</div>
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md">Skills</div>
+                                <div class="col-md-2">
+                                    <a href="{{ url('profile/skills') }}" class="btn btn-primary btn-sm btn-block">Edit</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             @foreach($user->skills as $skill)
                                 <span class="badge badge-primary">{{ $skill->name }}</span>

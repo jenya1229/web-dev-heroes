@@ -16,4 +16,13 @@ class ProfileController extends BaseController
             'user' => $user,
         ]);
     }
+
+    public function skills()
+    {
+        $user = Auth::user();
+
+        return view('profile_skills')->with([
+            'user' => $user,
+        ]);
+    }
 }
