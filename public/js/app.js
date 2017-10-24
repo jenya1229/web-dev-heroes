@@ -12485,7 +12485,7 @@ var Component = __webpack_require__(2)(
   /* styles */
   injectStyle,
   /* scopeId */
-  null,
+  "data-v-298b9779",
   /* moduleIdentifier (server only) */
   null
 )
@@ -12523,13 +12523,13 @@ var content = __webpack_require__(41);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(43)("7f081a43", content, false);
+var update = __webpack_require__(43)("b92c53b4", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-298b9779\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SkillsEdit.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-298b9779\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SkillsEdit.vue");
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-298b9779\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SkillsEdit.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-298b9779\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SkillsEdit.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -12547,7 +12547,7 @@ exports = module.exports = __webpack_require__(42)(undefined);
 
 
 // module
-exports.push([module.i, "\nspan {\n    margin-right: 5px;\n}\n.skill {\n    margin-right: 10px;\n}\n", ""]);
+exports.push([module.i, "\nspan[data-v-298b9779] {\n    margin-right: 5px;\n}\n.skill[data-v-298b9779] {\n    margin-right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -12922,29 +12922,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             search: 'p',
-            choosed: ['1']
+            choosed: ['1'],
+            skills: []
         };
     },
 
+    mounted: function mounted() {
+        this.init();
+    },
     computed: {
-        skills: function skills() {
-            return ['php', 'laravel', 'javascript', 'vue'];
-        },
         searchList: function searchList() {
             var _this = this;
 
             if (this.search.length < 1) return;
             return this.skills.filter(function (item) {
-                return item.toLowerCase().includes(_this.search.toLowerCase());
+                return item.name.toLowerCase().includes(_this.search.toLowerCase());
             });
         }
     },
     methods: {
+        init: function init() {
+            var vm = this;
+            axios.get('/skills/list').then(function (response) {
+                vm.skills = response.data;
+            });
+        },
+        initChosed: function initChosed() {
+            var vm = this;
+            axios.get('/profile/skills').then(function (response) {
+                vm.choosed = response.data;
+            });
+        },
+
         add: function add(item) {
             this.choosed.push(item);
             var index = this.skills.indexOf(item);
@@ -12955,7 +12972,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         remove: function remove(item) {
             this.skills.push(item);
-            var index = this.chosed.indexOf(item);
+            var index = this.choosed.indexOf(item);
             if (index > -1) {
                 this.choosed.splice(index, 1);
             }
@@ -12971,7 +12988,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('form', {
+  return _c('div', [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-md d-inline-flex"
+  }, _vm._l((_vm.choosed), function(item) {
+    return _c('div', {
+      staticClass: "skill"
+    }, [_c('span', {
+      staticClass: "badge badge-secondary"
+    }, [_vm._v("\n                " + _vm._s(item) + "\n            ")]), _vm._v(" "), _c('button', {
+      staticClass: "close",
+      attrs: {
+        "type": "button",
+        "aria-label": "Close"
+      },
+      on: {
+        "click": function($event) {
+          _vm.remove(item)
+        }
+      }
+    }, [_c('span', {
+      attrs: {
+        "aria-hidden": "true"
+      }
+    }, [_vm._v("×")])])])
+  }))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('form', {
     staticClass: "inline"
   }, [_c('div', {
     staticClass: "row"
@@ -13011,10 +13053,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       on: {
         "click": function($event) {
-          _vm.add(item)
+          _vm.add(item.name)
         }
       }
-    }, [_vm._v(_vm._s(item))])])
+    }, [_vm._v(_vm._s(item.name))])])
   })], 2), _vm._v(" "), _c('div', {
     staticClass: "col-md-2"
   }, [_c('button', {
@@ -13025,30 +13067,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.save
     }
-  }, [_vm._v("Save")])])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md d-inline-flex"
-  }, _vm._l((_vm.choosed), function(item) {
-    return _c('div', {
-      staticClass: "skill"
-    }, [_c('span', {
-      staticClass: "badge badge-secondary"
-    }, [_vm._v("\n                " + _vm._s(item) + "\n            ")]), _vm._v(" "), _c('button', {
-      staticClass: "close",
-      attrs: {
-        "type": "button",
-        "aria-label": "Close"
-      },
-      on: {
-        "click": function($event) {
-          _vm.remove(item)
-        }
-      }
-    }, [_c('span', {
-      attrs: {
-        "aria-hidden": "true"
-      }
-    }, [_vm._v("×")])])])
-  }))])
+  }, [_vm._v("Save")])])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

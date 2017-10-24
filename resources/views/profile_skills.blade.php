@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="row" id="app">
+    <div id="app">
         <skills_edit></skills_edit>
     </div>
 @endsection
